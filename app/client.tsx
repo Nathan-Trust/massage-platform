@@ -1,15 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { testimonials, features } from "@/store/home";
+import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { stats, features, testimonials } from "@/store/home";
 
-export default function HomeClient() {
+export default function HomePage() {
+  const router = useRouter();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = () => {
@@ -23,205 +31,186 @@ export default function HomeClient() {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-[#FAFAFA]">
       {/* Hero Section */}
-      <section className="relative bg-white pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-16 md:pb-28 lg:pt-20 lg:pb-32">
+      <section className="bg-[#E8E8E8] py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative z-10"
+              className="order-2 lg:order-1"
             >
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-[var(--spa-dark)]"
-                style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+                style={{
+                  fontWeight: 400,
+                  lineHeight: 1.2,
+                  fontFamily: "Georgia, serif",
+                }}
               >
-                Welcome to SPXEK Luxury Spa
+                Glow Your Face & Vitality With Our Best Service
               </h1>
               <p
-                className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-600 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-600 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                Experience tranquility and rejuvenation through our professional
-                massage therapy and wellness treatments. Escape the stress of
-                daily life in our serene, healing environment.
+                It uses a dictionary of over 200 Latin words, combined with a
+                handful of model sentence structures, to generate Lorem Ipsum
+                which looks reasonable.
               </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <Button
+                  onClick={() => router.push("massages")}
+                  className="bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
+                  style={{ fontFamily: "system-ui, sans-serif" }}
+                >
+                  Our Service
+                </Button>
+                <Button
+                  onClick={() => router.push("contact")}
+                  variant="outline"
+                  className="border-2 border-[var(--spa-orange)] text-[var(--spa-orange)] hover:bg-[var(--spa-orange)] hover:text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
+                  style={{ fontFamily: "system-ui, sans-serif" }}
+                >
+                  Learn More
+                </Button>
+              </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
-                    style={{
-                      fontFamily: "system-ui, sans-serif",
-                      fontWeight: 600,
-                    }}
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-6 sm:pt-8 border-t border-gray-300">
+                <div>
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl mb-1"
+                    style={{ fontWeight: 600, color: "var(--spa-dark)" }}
                   >
-                    Book Appointment
-                  </Button>
-                </Link>
-                <Link href="/massages">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-[var(--spa-orange)] text-[var(--spa-orange)] hover:bg-[var(--spa-orange)] hover:text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
-                    style={{
-                      fontFamily: "system-ui, sans-serif",
-                      fontWeight: 600,
-                    }}
+                    15+
+                  </div>
+                  <div
+                    className="text-xs sm:text-sm text-gray-600"
+                    style={{ fontFamily: "system-ui, sans-serif" }}
                   >
-                    View Services
-                  </Button>
-                </Link>
+                    YEARS
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl mb-1"
+                    style={{ fontWeight: 600, color: "var(--spa-dark)" }}
+                  >
+                    350+
+                  </div>
+                  <div
+                    className="text-xs sm:text-sm text-gray-600"
+                    style={{ fontFamily: "system-ui, sans-serif" }}
+                  >
+                    Happy Customer
+                  </div>
+                </div>
+                <div>
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl mb-1"
+                    style={{ fontWeight: 600, color: "var(--spa-dark)" }}
+                  >
+                    125+
+                  </div>
+                  <div
+                    className="text-xs sm:text-sm text-gray-600"
+                    style={{ fontFamily: "system-ui, sans-serif" }}
+                  >
+                    Outlet
+                  </div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Right Hero Image */}
+            {/* Right Image */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-[400px] sm:h-[500px] lg:h-[600px]"
+              className="relative order-1 lg:order-2"
             >
-              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Luxury spa treatment room"
-                  fill
-                  className="object-cover"
-                  priority
+              <div className="relative rounded-lg overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1722351255255-93850590d5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGN1Y3VtYmVyJTIwZmFjZSUyMG1hc2slMjBzcGF8ZW58MXx8fHwxNzYyMTE1NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Spa treatment"
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
               </div>
             </motion.div>
           </div>
-
-          {/* Stats Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 sm:mt-16 md:mt-20 lg:mt-24"
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 text-[var(--spa-dark)]"
-                    style={{ fontWeight: 700, fontFamily: "Georgia, serif" }}
-                  >
-                    {stat.number}
-                  </div>
-                  <div
-                    className="text-xs sm:text-sm md:text-base text-gray-600"
-                    style={{ fontFamily: "system-ui, sans-serif" }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Wavy divider */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            className="relative block w-full h-20 sm:h-24 md:h-32"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#B89B7F"
-            ></path>
-          </svg>
         </div>
       </section>
 
-      {/* About Preview Section */}
-      <section
-        className="relative py-12 sm:py-16 md:py-20 lg:py-24"
-        style={{ backgroundColor: "#B89B7F" }}
-      >
+      {/* Massage Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+            {/* Left Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Spa interior with candles"
-                  fill
-                  className="object-cover"
+              <div className="relative rounded-lg overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGElMjBtYXNzYWdlJTIwdGhlcmFweSUyMGJlZHxlbnwxfHx8fDE3NjIxMTU2MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Massage therapy"
+                  className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
                 />
               </div>
             </motion.div>
 
+            {/* Right Content */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-white"
             >
               <h2
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-[var(--spa-dark)]"
                 style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
               >
-                About Our Spa
+                There are many variations of passages of Lorem
               </h2>
               <p
-                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed opacity-90"
+                className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                At SPXEK, we believe in the power of touch to heal, restore, and
-                rejuvenate. Our experienced therapists combine traditional
-                techniques with modern wellness practices to create a truly
-                transformative experience.
+                On the other hand, we denounce with righteous indignation and
+                dislike men who are so beguiled and demoralized by the charms of
+                pleasure of the moment, so blinded by desire, that they cannot
+                foresee the pain and trouble.
               </p>
-              <Link href="/about">
-                <Button
-                  variant="outline"
-                  className="bg-[var(--spa-dark)] hover:bg-[var(--spa-dark)]/90 text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
-                  style={{
-                    fontFamily: "system-ui, sans-serif",
-                    fontWeight: 600,
-                  }}
-                >
-                  Learn More About Us
-                </Button>
-              </Link>
+              <p
+                className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+              >
+                In a free hour, when our power of choice is untrammelled and
+                when nothing prevents our being able to do what we like best,
+                every pleasure is to be welcomed and every pain avoided. But in
+                certain circumstances and owing to the claims of duty or the
+                obligations.
+              </p>
+              <Button
+                onClick={() => router.push("about")}
+                className="bg-[var(--spa-dark)] hover:bg-[var(--spa-dark)]/90 text-white px-6 sm:px-8 py-5 sm:py-6 rounded-md w-full sm:w-auto"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+              >
+                Read More
+              </Button>
             </motion.div>
           </div>
         </div>
-
-        {/* Wavy divider bottom */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
-          <svg
-            className="relative block w-full h-32"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#ffffff"
-            ></path>
-          </svg>
-        </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+      {/* Secret of Beliatrix Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#F5F5F5]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -234,47 +223,226 @@ export default function HomeClient() {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[var(--spa-dark)] px-4"
               style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
             >
-              Why Choose SPXEK
+              Secret of Beliatrix
             </h2>
             <p
-              className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4"
+              className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4"
               style={{ fontFamily: "system-ui, sans-serif" }}
             >
-              Discover what makes our spa experience truly exceptional
+              The standard chunk of Lorem Ipsum used since the 1500s is
+              reproduced below
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+            {/* Features - Carousel on Mobile, Grid on Desktop */}
+            <div className="order-2 lg:order-1">
+              {/* Mobile/Tablet Carousel */}
+              <div className="block lg:hidden">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {features.map((feature, index) => (
+                      <CarouselItem
+                        key={feature.title}
+                        className="md:basis-1/2"
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                          <Card className="p-5 sm:p-6 bg-white border border-gray-200 hover:shadow-lg transition-shadow h-full">
+                            <div
+                              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-3 sm:mb-4"
+                              style={{ backgroundColor: `${feature.color}20` }}
+                            >
+                              <feature.icon
+                                className="w-6 h-6 sm:w-7 sm:h-7"
+                                style={{ color: feature.color }}
+                              />
+                            </div>
+                            <h3
+                              className="mb-2 text-[var(--spa-dark)]"
+                              style={{
+                                fontWeight: 600,
+                                fontFamily: "system-ui, sans-serif",
+                              }}
+                            >
+                              {feature.title}
+                            </h3>
+                            <p
+                              className="text-xs sm:text-sm text-gray-600"
+                              style={{ fontFamily: "system-ui, sans-serif" }}
+                            >
+                              {feature.description}
+                            </p>
+                          </Card>
+                        </motion.div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+                  <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+                </Carousel>
+              </div>
+
+              {/* Desktop Grid */}
+              <div className="hidden lg:grid grid-cols-2 gap-4 sm:gap-6">
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="p-5 sm:p-6 bg-white border border-gray-200 hover:shadow-lg transition-shadow h-full">
+                      <div
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-3 sm:mb-4"
+                        style={{ backgroundColor: `${feature.color}20` }}
+                      >
+                        <feature.icon
+                          className="w-6 h-6 sm:w-7 sm:h-7"
+                          style={{ color: feature.color }}
+                        />
+                      </div>
+                      <h3
+                        className="mb-2 text-[var(--spa-dark)]"
+                        style={{
+                          fontWeight: 600,
+                          fontFamily: "system-ui, sans-serif",
+                        }}
+                      >
+                        {feature.title}
+                      </h3>
+                      <p
+                        className="text-xs sm:text-sm text-gray-600"
+                        style={{ fontFamily: "system-ui, sans-serif" }}
+                      >
+                        {feature.description}
+                      </p>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="order-1 lg:order-2"
+            >
+              <div className="relative rounded-lg overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1606619353146-a7732c58345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGElMjBvaWwlMjB0cmVhdG1lbnQlMjBoYW5kc3xlbnwxfHx8fDE3NjIxMTU2MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Spa treatment"
+                  className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Two Images Section */}
+      <section className="py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
+          >
+            <ImageWithFallback
+              src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXNzYWdlJTIwaGFuZHMlMjBiYWNrfGVufDF8fHx8MTc2MjExNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              alt="Massage"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[#2C2C2C] flex items-center justify-center p-6 sm:p-8 md:p-12"
+          >
+            <div className="text-white max-w-md">
+              <p
+                className="text-sm sm:text-base md:text-lg leading-relaxed"
+                style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                <Card className="p-6 sm:p-8 text-center hover:shadow-lg transition-shadow h-full">
-                  <div className="w-16 h-16 bg-[var(--spa-orange)]/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                    <feature.icon className="w-8 h-8 text-[var(--spa-orange)]" />
-                  </div>
-                  <h3
-                    className="text-lg sm:text-xl mb-2 text-[var(--spa-dark)]"
-                    style={{
-                      fontWeight: 600,
-                      fontFamily: "system-ui, sans-serif",
-                    }}
-                  >
-                    {feature.title}
-                  </h3>
-                  <p
-                    className="text-sm sm:text-base text-gray-600 leading-relaxed"
-                    style={{ fontFamily: "system-ui, sans-serif" }}
-                  >
-                    {feature.description}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
+                Various versions have evolved over the years, sometimes by
+                accident, sometimes on purpose injected humour and the like. The
+                standard chunk of Lorem Ipsum used since the 1500s is reproduced
+                below for those interested.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Natural Approach Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-[var(--spa-dark)]"
+                style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+              >
+                A natural approach to better health
+              </h2>
+              <p
+                className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+              >
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even
+                slightly believable.
+              </p>
+              <p
+                className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+              >
+                If you are going to use a passage of Lorem Ipsum, you need to be
+                sure there isn't anything embarrassing hidden in the middle of
+                text.
+              </p>
+            </motion.div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="relative rounded-lg overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1544717304-a2db4a7b16ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHNwYSUyMHRvd2VsJTIwYmVhdXR5fGVufDF8fHx8MTc2MjExNTYxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Natural beauty"
+                  className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -290,149 +458,87 @@ export default function HomeClient() {
             className="text-center mb-8 sm:mb-10 md:mb-12"
           >
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-[var(--spa-dark)]"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[var(--spa-dark)] px-4"
               style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
             >
-              What Our Clients Say
+              Clients Feedback
             </h2>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <Card className="p-6 sm:p-8 md:p-12 text-center bg-white border-0 shadow-lg">
-                <div className="flex justify-center mb-4 sm:mb-6">
-                  {Array(testimonials[currentTestimonial].rating)
-                    .fill(0)
-                    .map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 text-[var(--spa-orange)] fill-current"
-                      />
-                    ))}
-                </div>
+          <div className="relative max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {testimonials.map((testimonial, index) => {
+                const position =
+                  (index - currentTestimonial + testimonials.length) %
+                  testimonials.length;
+                const isVisible = position < 4;
 
-                <blockquote
-                  className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-gray-700 italic leading-relaxed"
-                  style={{ fontFamily: "Georgia, serif" }}
-                >
-                  "{testimonials[currentTestimonial].text}"
-                </blockquote>
+                return (
+                  <motion.div
+                    key={`${testimonial.name}-${index}`}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{
+                      opacity: isVisible ? 1 : 0,
+                      scale: isVisible ? 1 : 0.8,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={isVisible ? "block" : "hidden md:block"}
+                  >
+                    <Card className="p-6 bg-white border border-gray-200 h-full">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-16 h-16 rounded-full overflow-hidden mb-4">
+                          <ImageWithFallback
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <h4
+                          className="mb-2 text-[var(--spa-dark)]"
+                          style={{
+                            fontWeight: 600,
+                            fontFamily: "system-ui, sans-serif",
+                          }}
+                        >
+                          {testimonial.name}
+                        </h4>
+                        <div className="flex mb-3">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 text-[var(--spa-orange)] fill-current"
+                            />
+                          ))}
+                        </div>
+                        <p
+                          className="text-sm text-gray-600"
+                          style={{ fontFamily: "system-ui, sans-serif" }}
+                        >
+                          {testimonial.text}
+                        </p>
+                      </div>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden">
-                    <Image
-                      src={testimonials[currentTestimonial].image}
-                      alt={testimonials[currentTestimonial].name}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="text-left">
-                    <div
-                      className="text-base sm:text-lg text-[var(--spa-dark)]"
-                      style={{
-                        fontWeight: 600,
-                        fontFamily: "system-ui, sans-serif",
-                      }}
-                    >
-                      {testimonials[currentTestimonial].name}
-                    </div>
-                    <div
-                      className="text-sm text-gray-600"
-                      style={{ fontFamily: "system-ui, sans-serif" }}
-                    >
-                      {testimonials[currentTestimonial].role}
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Navigation buttons */}
-              <div className="flex justify-center gap-4 mt-6 sm:mt-8">
-                <button
-                  onClick={prevTestimonial}
-                  className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+            {/* Navigation Arrows */}
+            <div className="flex justify-center gap-4 mt-8">
+              <button
+                onClick={prevTestimonial}
+                className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section
-        className="relative py-16 sm:py-20 md:py-24 lg:py-32"
-        style={{ backgroundColor: "#6B7B5E" }}
-      >
-        {/* Wavy top */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            className="relative block w-full h-32"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#FAFAFA"
-            ></path>
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-white leading-tight px-4"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
-            >
-              Ready to Experience Ultimate Relaxation?
-            </h2>
-            <p
-              className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-2xl mx-auto px-4"
-              style={{ fontFamily: "system-ui, sans-serif" }}
-            >
-              Book your appointment today and discover why SPXEK is the premier
-              destination for wellness and rejuvenation.
-            </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                className="bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white px-8 sm:px-12 py-6 sm:py-8 text-base sm:text-lg rounded-md"
-                style={{ fontFamily: "system-ui, sans-serif", fontWeight: 600 }}
-              >
-                Book Your Appointment
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Wavy bottom */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
-          <svg
-            className="relative block w-full h-32"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#ffffff"
-            ></path>
-          </svg>
         </div>
       </section>
     </div>

@@ -1,14 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Clock, DollarSign, Star } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { massageServices, whatToExpect, packageDeals } from "@/store/massages";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { massages } from "@/store/massages";
+import { motion } from "framer-motion";
+import { Clock, DollarSign, Star } from "lucide-react";
 
-export default function MassagesClient() {
+export default  function MassagesClient() {
+ 
+
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Hero Section */}
@@ -24,15 +26,15 @@ export default function MassagesClient() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-[var(--spa-dark)] leading-tight px-4"
               style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
             >
-              Massage Therapy Services
+              Our Massage Services
             </h1>
             <p
               className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-600 leading-relaxed px-4"
               style={{ fontFamily: "system-ui, sans-serif" }}
             >
-              Discover our comprehensive range of professional massage
-              treatments designed to restore balance, relieve tension, and
-              promote overall wellness.
+              Discover the healing power of therapeutic touch. Each massage is
+              tailored to your unique needs, helping you achieve optimal
+              wellness and relaxation.
             </p>
           </motion.div>
         </div>
@@ -47,116 +49,229 @@ export default function MassagesClient() {
           >
             <path
               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#B89B7F"
+              fill="#6B7B5E"
             ></path>
           </svg>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services - Carousel on Mobile/Tablet, Cards on Desktop */}
       <section
         className="relative py-12 sm:py-16 md:py-20 lg:py-24"
-        style={{ backgroundColor: "#B89B7F" }}
+        style={{ backgroundColor: "#6B7B5E" }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-white px-4"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+          {/* Mobile/Tablet Carousel */}
+          <div className="block lg:hidden">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
             >
-              Our Massage Services
-            </h2>
-          </motion.div>
+              <CarouselContent>
+                {massages.map((massage, index) => (
+                  <CarouselItem key={massage.title}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="pb-4"
+                    >
+                      <Card className="p-6 sm:p-8 bg-white/10 border-0 backdrop-blur-sm text-white">
+                        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-6">
+                          <ImageWithFallback
+                            src={massage.image}
+                            alt={massage.title}
+                            className="w-full h-[280px] sm:h-[350px] object-cover"
+                          />
+                        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {massageServices.map((service, index) => (
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+                          <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span
+                              className="text-xs sm:text-sm"
+                              style={{ fontFamily: "system-ui, sans-serif" }}
+                            >
+                              {massage.duration}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
+                            <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span
+                              className="text-xs sm:text-sm"
+                              style={{ fontFamily: "system-ui, sans-serif" }}
+                            >
+                              {massage.price}
+                            </span>
+                          </div>
+                        </div>
+
+                        <h3
+                          className="text-xl sm:text-2xl mb-3 sm:mb-4"
+                          style={{
+                            fontWeight: 400,
+                            fontFamily: "Georgia, serif",
+                          }}
+                        >
+                          {massage.title}
+                        </h3>
+
+                        <p
+                          className="mb-4 leading-relaxed opacity-95 text-sm sm:text-base"
+                          style={{ fontFamily: "system-ui, sans-serif" }}
+                        >
+                          {massage.description}
+                        </p>
+
+                        <div className="mb-6">
+                          <h4
+                            className="mb-2 sm:mb-3 opacity-90 text-sm sm:text-base"
+                            style={{
+                              fontWeight: 600,
+                              fontFamily: "system-ui, sans-serif",
+                            }}
+                          >
+                            Benefits:
+                          </h4>
+                          <ul className="space-y-1.5 sm:space-y-2">
+                            {massage.benefits.map((benefit, i) => (
+                              <li
+                                key={i}
+                                className="flex items-center gap-2 opacity-95 text-xs sm:text-sm"
+                                style={{ fontFamily: "system-ui, sans-serif" }}
+                              >
+                                <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current flex-shrink-0" />
+                                {benefit}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <Button
+                          className="bg-white text-[#6B7B5E] hover:bg-white/90 px-6 sm:px-8 py-5 sm:py-6 rounded-full w-full"
+                          style={{
+                            fontFamily: "system-ui, sans-serif",
+                            fontWeight: 600,
+                          }}
+                        >
+                          Book Now
+                        </Button>
+                      </Card>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 bg-white text-[#6B7B5E] hover:bg-white/90" />
+              <CarouselNext className="right-2 bg-white text-[#6B7B5E] hover:bg-white/90" />
+            </Carousel>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:block space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
+            {massages.map((massage, index) => (
               <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={massage.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6 }}
               >
-                <Card className="overflow-hidden bg-white border-0 hover:shadow-2xl transition-shadow h-full flex flex-col">
-                  <div className="relative h-48 sm:h-56">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
+                <div
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center ${
+                    index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                  }`}
+                >
+                  {/* Image */}
+                  <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
+                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                      <ImageWithFallback
+                        src={massage.image}
+                        alt={massage.title}
+                        className="w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover"
+                      />
+                    </div>
                   </div>
 
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col">
-                    <h3
-                      className="text-lg sm:text-xl mb-2 text-[var(--spa-dark)]"
-                      style={{
-                        fontWeight: 600,
-                        fontFamily: "system-ui, sans-serif",
-                      }}
-                    >
-                      {service.title}
-                    </h3>
-
-                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span style={{ fontFamily: "system-ui, sans-serif" }}>
-                          {service.duration}
+                  {/* Content */}
+                  <div
+                    className={`${
+                      index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
+                    } text-white`}
+                  >
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+                      <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
+                        <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span
+                          className="text-xs sm:text-sm"
+                          style={{ fontFamily: "system-ui, sans-serif" }}
+                        >
+                          {massage.duration}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <DollarSign className="w-4 h-4" />
-                        <span style={{ fontFamily: "system-ui, sans-serif" }}>
-                          {service.price}
+                      <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
+                        <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span
+                          className="text-xs sm:text-sm"
+                          style={{ fontFamily: "system-ui, sans-serif" }}
+                        >
+                          {massage.price}
                         </span>
                       </div>
                     </div>
 
+                    <h3
+                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4"
+                      style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+                    >
+                      {massage.title}
+                    </h3>
+
                     <p
-                      className="text-sm text-gray-600 mb-4 leading-relaxed flex-1"
+                      className="mb-4 sm:mb-6 leading-relaxed opacity-95 text-sm sm:text-base"
                       style={{ fontFamily: "system-ui, sans-serif" }}
                     >
-                      {service.description}
+                      {massage.description}
                     </p>
 
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <h4
-                        className="text-sm font-semibold mb-2 text-[var(--spa-dark)]"
-                        style={{ fontFamily: "system-ui, sans-serif" }}
+                        className="mb-2 sm:mb-3 opacity-90 text-sm sm:text-base"
+                        style={{
+                          fontWeight: 600,
+                          fontFamily: "system-ui, sans-serif",
+                        }}
                       >
                         Benefits:
                       </h4>
-                      <ul className="space-y-1">
-                        {service.benefits.slice(0, 3).map((benefit, i) => (
+                      <ul className="space-y-1.5 sm:space-y-2">
+                        {massage.benefits.map((benefit, i) => (
                           <li
                             key={i}
-                            className="flex items-center gap-2 text-xs text-gray-600"
+                            className="flex items-center gap-2 opacity-95 text-xs sm:text-sm md:text-base"
                             style={{ fontFamily: "system-ui, sans-serif" }}
                           >
-                            <Check className="w-3 h-3 text-[#6B7B5E]" />
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current flex-shrink-0" />
                             {benefit}
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <Link href="/contact" className="mt-auto">
-                      <Button
-                        className="w-full bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white"
-                        style={{ fontFamily: "system-ui, sans-serif" }}
-                      >
-                        Book Now
-                      </Button>
-                    </Link>
+                    <Button
+                      className="bg-white text-[#6B7B5E] hover:bg-white/90 px-6 sm:px-8 py-5 sm:py-6 rounded-full w-full sm:w-auto"
+                      style={{
+                        fontFamily: "system-ui, sans-serif",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Book Now
+                    </Button>
                   </div>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -178,153 +293,148 @@ export default function MassagesClient() {
         </div>
       </section>
 
-      {/* What to Expect Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 text-[var(--spa-dark)]"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+      {/* Additional Info Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
             >
-              What to Expect
-            </h2>
-          </motion.div>
+              <h2
+                className="text-3xl md:text-4xl mb-6 text-[var(--spa-dark)]"
+                style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+              >
+                What to Expect
+              </h2>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {whatToExpect.map((step, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
-                key={step.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.5 }}
               >
-                <div className="w-16 h-16 bg-[var(--spa-orange)] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  {step.step}
-                </div>
-                <h3
-                  className="text-lg mb-2 text-[var(--spa-dark)]"
-                  style={{
-                    fontWeight: 600,
-                    fontFamily: "system-ui, sans-serif",
-                  }}
-                >
-                  {step.title}
-                </h3>
-                <p
-                  className="text-sm text-gray-600 leading-relaxed"
-                  style={{ fontFamily: "system-ui, sans-serif" }}
-                >
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Package Deals Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#FAFAFA]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 text-[var(--spa-dark)]"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
-            >
-              Package Deals
-            </h2>
-            <p
-              className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
-              style={{ fontFamily: "system-ui, sans-serif" }}
-            >
-              Save more with our specially designed wellness packages
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            {packageDeals.map((deal, index) => (
-              <motion.div
-                key={deal.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="p-6 sm:p-8 text-center bg-white border-2 border-[var(--spa-orange)]/20 hover:border-[var(--spa-orange)] transition-colors h-full flex flex-col">
+                <Card className="p-8 text-center bg-[#FAFAFA] border-2 border-gray-200 h-full">
+                  <div className="w-16 h-16 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center mb-4 mx-auto">
+                    <span
+                      className="text-3xl"
+                      style={{
+                        fontFamily: "Georgia, serif",
+                        color: "#6B7B5E",
+                        fontWeight: 600,
+                      }}
+                    >
+                      1
+                    </span>
+                  </div>
                   <h3
-                    className="text-xl mb-2 text-[var(--spa-dark)]"
+                    className="mb-3 text-[var(--spa-dark)]"
                     style={{
                       fontWeight: 600,
                       fontFamily: "system-ui, sans-serif",
                     }}
                   >
-                    {deal.title}
+                    Consultation
                   </h3>
-
-                  <div
-                    className="text-sm text-gray-600 mb-4"
+                  <p
+                    className="text-sm text-gray-600"
                     style={{ fontFamily: "system-ui, sans-serif" }}
                   >
-                    {deal.sessions}
-                  </div>
+                    We begin with a brief consultation to understand your needs,
+                    preferences, and any health concerns.
+                  </p>
+                </Card>
+              </motion.div>
 
-                  <div className="mb-4">
-                    <div
-                      className="text-3xl text-[var(--spa-orange)] mb-1"
-                      style={{ fontWeight: 700, fontFamily: "Georgia, serif" }}
-                    >
-                      {deal.price}
-                    </div>
-                    <div
-                      className="text-sm text-[#6B7B5E]"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <Card className="p-8 text-center bg-[#FAFAFA] border-2 border-gray-200 h-full">
+                  <div className="w-16 h-16 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center mb-4 mx-auto">
+                    <span
+                      className="text-3xl"
                       style={{
-                        fontFamily: "system-ui, sans-serif",
+                        fontFamily: "Georgia, serif",
+                        color: "#6B7B5E",
                         fontWeight: 600,
                       }}
                     >
-                      {deal.savings}
-                    </div>
+                      2
+                    </span>
                   </div>
-
+                  <h3
+                    className="mb-3 text-[var(--spa-dark)]"
+                    style={{
+                      fontWeight: 600,
+                      fontFamily: "system-ui, sans-serif",
+                    }}
+                  >
+                    Treatment
+                  </h3>
                   <p
-                    className="text-sm text-gray-600 mb-6 flex-1"
+                    className="text-sm text-gray-600"
                     style={{ fontFamily: "system-ui, sans-serif" }}
                   >
-                    {deal.description}
+                    Relax in our serene environment as our expert therapists
+                    work their magic tailored to you.
                   </p>
-
-                  <Link href="/contact">
-                    <Button
-                      className="w-full bg-[var(--spa-dark)] hover:bg-[var(--spa-dark)]/90 text-white"
-                      style={{ fontFamily: "system-ui, sans-serif" }}
-                    >
-                      Choose Package
-                    </Button>
-                  </Link>
                 </Card>
               </motion.div>
-            ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <Card className="p-8 text-center bg-[#FAFAFA] border-2 border-gray-200 h-full">
+                  <div className="w-16 h-16 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center mb-4 mx-auto">
+                    <span
+                      className="text-3xl"
+                      style={{
+                        fontFamily: "Georgia, serif",
+                        color: "#6B7B5E",
+                        fontWeight: 600,
+                      }}
+                    >
+                      3
+                    </span>
+                  </div>
+                  <h3
+                    className="mb-3 text-[var(--spa-dark)]"
+                    style={{
+                      fontWeight: 600,
+                      fontFamily: "system-ui, sans-serif",
+                    }}
+                  >
+                    Aftercare
+                  </h3>
+                  <p
+                    className="text-sm text-gray-600"
+                    style={{ fontFamily: "system-ui, sans-serif" }}
+                  >
+                    We provide personalized aftercare advice to help you
+                    maintain the benefits of your massage.
+                  </p>
+                </Card>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section
-        className="relative py-16 sm:py-20 md:py-24 lg:py-32"
-        style={{ backgroundColor: "#6B7B5E" }}
+        className="relative py-24 md:py-32"
+        style={{ backgroundColor: "#B89B7F" }}
       >
         {/* Wavy top */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
@@ -336,12 +446,12 @@ export default function MassagesClient() {
           >
             <path
               d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              fill="#FAFAFA"
+              fill="#ffffff"
             ></path>
           </svg>
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -349,27 +459,24 @@ export default function MassagesClient() {
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-white leading-tight px-4"
+              className="text-3xl md:text-4xl lg:text-5xl mb-8 text-white leading-tight"
               style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
             >
-              Ready to Begin Your Wellness Journey?
+              Ready to experience ultimate relaxation?
             </h2>
             <p
-              className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-2xl mx-auto px-4"
+              className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto"
               style={{ fontFamily: "system-ui, sans-serif" }}
             >
-              Book your massage therapy session today and experience the healing
-              power of professional touch.
+              Book your massage today and let our expert therapists help you
+              restore balance and wellness
             </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                className="bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white px-8 sm:px-12 py-6 sm:py-8 text-base sm:text-lg rounded-md"
-                style={{ fontFamily: "system-ui, sans-serif", fontWeight: 600 }}
-              >
-                Book Your Session
-              </Button>
-            </Link>
+            <Button
+              className="bg-white text-[var(--spa-dark)] hover:bg-white/90 px-10 py-6 rounded-full text-lg"
+              style={{ fontFamily: "system-ui, sans-serif", fontWeight: 600 }}
+            >
+              Book Appointment
+            </Button>
           </motion.div>
         </div>
 
@@ -382,7 +489,7 @@ export default function MassagesClient() {
             preserveAspectRatio="none"
           >
             <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27-35A600.21,600.21,0,0,0,321.39,56.44Z"
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
               fill="#ffffff"
             ></path>
           </svg>

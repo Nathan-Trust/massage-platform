@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -74,39 +74,44 @@ export function Navigation() {
             )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden py-4 border-t border-gray-100"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg z-50 lg:hidden overflow-hidden"
           >
-            <div className="flex flex-col space-y-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block"
-                >
-                  <Button
-                    variant="ghost"
-                    className={`justify-start w-full ${
-                      pathname === item.href
-                        ? "bg-gray-100 text-[var(--spa-dark)]"
-                        : "text-gray-600"
-                    }`}
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex flex-col space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block"
                   >
-                    {item.name}
-                  </Button>
-                </Link>
-              ))}
+                    <Button
+                      variant="ghost"
+                      className={`justify-start w-full ${
+                        pathname === item.href
+                          ? "bg-gray-100 text-[var(--spa-dark)]"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {item.name}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </motion.nav>
   );
 }
