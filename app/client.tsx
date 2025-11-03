@@ -51,15 +51,16 @@ export default function HomePage() {
                   fontFamily: "Georgia, serif",
                 }}
               >
-                Glow Your Face & Vitality With Our Best Service
+                Rejuvenate Your Body & Soul With Our Expert Care
               </h1>
               <p
                 className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-600 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                It uses a dictionary of over 200 Latin words, combined with a
-                handful of model sentence structures, to generate Lorem Ipsum
-                which looks reasonable.
+                Experience the ultimate relaxation and healing at SPXEK Luxury
+                Spa. Our certified therapists combine traditional techniques
+                with modern wellness practices to restore your mind, body, and
+                spirit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <Button
@@ -176,26 +177,26 @@ export default function HomePage() {
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 text-[var(--spa-dark)]"
                 style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
               >
-                There are many variations of passages of Lorem
+                Professional Massage Therapy for Complete Wellness
               </h2>
               <p
                 className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                On the other hand, we denounce with righteous indignation and
-                dislike men who are so beguiled and demoralized by the charms of
-                pleasure of the moment, so blinded by desire, that they cannot
-                foresee the pain and trouble.
+                Our expert massage therapists are dedicated to providing
+                personalized treatments that address your specific needs.
+                Whether you're seeking relief from muscle tension, stress
+                reduction, or simply want to indulge in pure relaxation, we have
+                the perfect treatment for you.
               </p>
               <p
                 className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                In a free hour, when our power of choice is untrammelled and
-                when nothing prevents our being able to do what we like best,
-                every pleasure is to be welcomed and every pain avoided. But in
-                certain circumstances and owing to the claims of duty or the
-                obligations.
+                From Swedish massage to deep tissue therapy, hot stone
+                treatments to aromatherapy sessions, each service is carefully
+                designed to promote healing, improve circulation, and enhance
+                your overall well-being.
               </p>
               <Button
                 onClick={() => router.push("about")}
@@ -229,8 +230,8 @@ export default function HomePage() {
               className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4"
               style={{ fontFamily: "system-ui, sans-serif" }}
             >
-              The standard chunk of Lorem Ipsum used since the 1500s is
-              reproduced below
+              Discover our comprehensive range of therapeutic services designed
+              to promote wellness and relaxation
             </p>
           </motion.div>
 
@@ -382,10 +383,9 @@ export default function HomePage() {
                 className="text-sm sm:text-base md:text-lg leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                Various versions have evolved over the years, sometimes by
-                accident, sometimes on purpose injected humour and the like. The
-                standard chunk of Lorem Ipsum used since the 1500s is reproduced
-                below for those interested.
+                Our holistic approach combines traditional massage techniques
+                with modern wellness practices to provide comprehensive health
+                benefits that go beyond simple relaxation.
               </p>
             </div>
           </motion.div>
@@ -413,18 +413,19 @@ export default function HomePage() {
                 className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable.
+                We believe that wellness is achieved through the harmony of
+                mind, body, and spirit. Our treatments are carefully designed to
+                address not just physical tension, but also to promote mental
+                clarity and emotional balance.
               </p>
               <p
                 className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                If you are going to use a passage of Lorem Ipsum, you need to be
-                sure there isn't anything embarrassing hidden in the middle of
-                text.
+                Each session is customized to your unique needs, using premium
+                oils, heated stones, and specialized techniques that have been
+                proven to enhance circulation, reduce stress, and promote
+                overall well-being.
               </p>
             </motion.div>
 

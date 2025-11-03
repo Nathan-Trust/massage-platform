@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {  MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -26,16 +26,17 @@ export default function AboutClient() {
                 className="text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--spa-dark)] leading-tight"
                 style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
               >
-                Studio massage & healthy spine therapy
+                Dedicated to Your Wellness Journey
               </h1>
               <p
                 className="text-base md:text-lg mb-8 text-gray-600 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable.
+                Our team of certified massage therapists brings over 15 years of
+                combined experience in therapeutic massage, spa treatments, and
+                holistic wellness. We believe in the healing power of touch and
+                the importance of creating a sanctuary where you can truly relax
+                and rejuvenate.
               </p>
               <Link href="/contact">
                 <Button
@@ -146,18 +147,20 @@ export default function AboutClient() {
                 className="mb-6 leading-relaxed opacity-95"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable.
+                Our comprehensive approach combines the best of traditional
+                healing practices with modern therapeutic techniques. We
+                understand that every client has unique needs, and our
+                experienced therapists work closely with you to develop
+                personalized treatment plans.
               </p>
               <p
                 className="leading-relaxed opacity-95"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                If you are going to use a passage of Lorem Ipsum, you need to be
-                sure there isn't anything embarrassing hidden in the middle of
-                text.
+                Whether you're seeking relief from chronic pain, stress
+                reduction, or simply want to maintain optimal wellness, our team
+                is dedicated to helping you achieve your health and relaxation
+                goals through expert care and genuine compassion.
               </p>
             </motion.div>
           </div>
@@ -339,12 +342,11 @@ export default function AboutClient() {
                 className="text-gray-600 mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text.
+                Our individual approach ensures that every treatment is
+                customized to your specific needs, health conditions, and
+                wellness goals. We take the time to understand your concerns and
+                develop a personalized treatment plan that addresses both
+                immediate relief and long-term health benefits.
               </p>
               <Button
                 className="bg-[#6B7B5E] hover:bg-[#6B7B5E]/90 text-white px-8 py-6 rounded-full"
@@ -396,12 +398,11 @@ export default function AboutClient() {
                 className="text-gray-600 mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text.
+                Experience the ancient healing art of cupping therapy, combined
+                with modern vacuum techniques to improve circulation, reduce
+                muscle tension, and promote natural healing. This specialized
+                treatment helps release deep tissue restrictions and promotes
+                faster recovery from injuries and chronic pain.
               </p>
               <Button
                 className="bg-[#6B7B5E] hover:bg-[#6B7B5E]/90 text-white px-8 py-6 rounded-full"
@@ -451,12 +452,11 @@ export default function AboutClient() {
                 className="text-gray-600 mb-6 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text.
+                Reveal your skin's natural beauty with our comprehensive facial
+                treatments. Using advanced techniques and premium skincare
+                products, we provide customized solutions for all skin types,
+                helping you achieve a radiant, healthy complexion while
+                promoting relaxation and rejuvenation.
               </p>
               <Button
                 className="bg-[#6B7B5E] hover:bg-[#6B7B5E]/90 text-white px-8 py-6 rounded-full"

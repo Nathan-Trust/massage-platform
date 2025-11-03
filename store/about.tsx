@@ -23,39 +23,39 @@ export const features = [
     icon: Heart,
     title: "Individual approach",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+      "Every client receives personalized attention with treatments tailored to their specific needs, health conditions, and wellness goals.",
   },
   {
     icon: Shield,
     title: "Professional staff",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+      "Our licensed and certified massage therapists bring years of experience and ongoing education to provide the highest quality therapeutic care.",
   },
   {
     icon: Clock,
     title: "Reasonable time",
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+      "We respect your schedule while ensuring each session provides maximum benefit. Our treatments are designed for optimal results within your time frame.",
   },
 ];
 
 export const studios = [
   {
-    title: "Studio 1",
+    title: "Tranquility Suite",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
+      "Our signature massage room featuring soft lighting, heated tables, and aromatherapy diffusers for the ultimate relaxation experience.",
     bg: "#A88B6F",
   },
   {
-    title: "Studio 2",
+    title: "Wellness Chamber",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
+      "Designed for therapeutic treatments with specialized equipment for deep tissue, sports massage, and rehabilitation therapy sessions.",
     bg: "#6B7B5E",
   },
   {
-    title: "Studio 3",
+    title: "Serenity Room",
     description:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
+      "A peaceful space dedicated to facial treatments and beauty services, equipped with state-of-the-art skincare technology and premium products.",
     bg: "#C9B8A0",
   },
 ];
