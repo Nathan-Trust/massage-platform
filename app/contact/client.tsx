@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { whatsappNumber, whatsappLink, socialMedia, locations } from "@/store/contact";
+import { whatsappNumber, whatsappLink, socialMedia } from "@/store/contact";
 
 export default function ContactClient() {
   return (
@@ -256,79 +256,6 @@ export default function ContactClient() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {locations.map((location, index) => (
-              <motion.div
-                key={location.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="p-8 bg-white border-2 border-gray-200 hover:shadow-lg transition-shadow h-full">
-                  <h3
-                    className="text-xl mb-6 text-[var(--spa-dark)]"
-                    style={{
-                      fontWeight: 600,
-                      fontFamily: "system-ui, sans-serif",
-                    }}
-                  >
-                    {location.name}
-                  </h3>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-5 h-5 text-[#6B7B5E]" />
-                      </div>
-                      <div>
-                        <p
-                          className="text-gray-700"
-                          style={{ fontFamily: "system-ui, sans-serif" }}
-                        >
-                          {location.address}
-                        </p>
-                        <p
-                          className="text-gray-700"
-                          style={{ fontFamily: "system-ui, sans-serif" }}
-                        >
-                          {location.city}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-5 h-5 text-[#6B7B5E]" />
-                      </div>
-                      <div>
-                        <p
-                          className="text-gray-700 whitespace-pre-line"
-                          style={{ fontFamily: "system-ui, sans-serif" }}
-                        >
-                          {location.hours}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#6B7B5E]/10 flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-5 h-5 text-[#6B7B5E]" />
-                      </div>
-                      <div>
-                        <p
-                          className="text-gray-700"
-                          style={{ fontFamily: "system-ui, sans-serif" }}
-                        >
-                          {whatsappNumber}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
