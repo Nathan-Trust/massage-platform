@@ -57,10 +57,10 @@ export default function HomePage() {
                 className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-gray-600 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                Experience the ultimate relaxation and healing at SPXEK Luxury
-                Spa. Our certified therapists combine traditional techniques
-                with modern wellness practices to restore your mind, body, and
-                spirit.
+                Experience the ultimate relaxation and healing at Bliss Massage
+                Parlor Luxury Spa. Our certified therapists combine traditional
+                techniques with modern wellness practices to restore your mind,
+                body, and spirit.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <Button
@@ -210,7 +210,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Secret of Beliatrix Section */}
+      {/* Secret of Bliss Massage Parlor Section */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#F5F5F5]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -224,7 +224,7 @@ export default function HomePage() {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[var(--spa-dark)] px-4"
               style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
             >
-              Secret of Beliatrix
+              Secret of Bliss Massage Parlor
             </h2>
             <p
               className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4"

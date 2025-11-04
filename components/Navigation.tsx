@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,16 +32,13 @@ export function Navigation() {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link href="/" className="flex items-center group">
-              <span
-                className="text-xl md:text-2xl tracking-widest"
-                style={{
-                  fontWeight: 700,
-                  color: "var(--spa-dark)",
-                  fontFamily: "Arial, sans-serif",
-                }}
-              >
-                SPXEK
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Bliss Massage Parlor Logo"
+                width={120}
+                height={60}
+                className="h-10 md:h-12 w-auto"
+              />
             </Link>
           </motion.div>
 

@@ -1,6 +1,7 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Twitter, Linkedin, Send } from "lucide-react";
+import Link from "next/link";
+import { InstagramIcon, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -25,7 +26,7 @@ export function Footer() {
                   fontFamily: "Arial, sans-serif",
                 }}
               >
-                SPXEK
+                Bliss Massage Parlor
               </span>
             </div>
             <p
@@ -37,7 +38,7 @@ export function Footer() {
               treatments designed to restore your mind, body, and spirit.
             </p>
             <h4
-              className="mb-3 text-[var(--spa-dark)]"
+              className="mb-3 text-spa-dark"
               style={{ fontWeight: 600, fontFamily: "system-ui, sans-serif" }}
             >
               Stay Updated
@@ -51,7 +52,7 @@ export function Footer() {
               />
               <Button
                 type="submit"
-                className="bg-[var(--spa-orange)] hover:bg-[var(--spa-orange)]/90 text-white px-6"
+                className="bg-spa-orange hover:bg-spa-orange/90 text-white px-6"
               >
                 <Send className="w-4 h-4" />
               </Button>
@@ -66,56 +67,47 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h4
-              className="mb-4 text-[var(--spa-dark)]"
+              className="mb-4 text-spa-dark"
               style={{ fontWeight: 600, fontFamily: "system-ui, sans-serif" }}
             >
               Quick Links
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
+                <Link
                   href="/about"
-                  className="text-gray-600 hover:text-[var(--spa-dark)] transition-colors text-sm"
+                  className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/massages"
-                  className="text-gray-600 hover:text-[var(--spa-dark)] transition-colors text-sm"
+                  className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
                   Our Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/testimonials"
-                  className="text-gray-600 hover:text-[var(--spa-dark)] transition-colors text-sm"
+                  className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
                   Client Gallery
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/contact"
-                  className="text-gray-600 hover:text-[var(--spa-dark)] transition-colors text-sm"
+                  className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
                   Book Appointment
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-600 hover:text-[var(--spa-dark)] transition-colors text-sm"
-                  style={{ fontFamily: "system-ui, sans-serif" }}
-                >
-                  Gift Certificates
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
@@ -128,71 +120,42 @@ export function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4
-              className="mb-4 text-[var(--spa-dark)]"
+              className="mb-4 text-spa-dark"
               style={{ fontWeight: 600, fontFamily: "system-ui, sans-serif" }}
             >
               Get In Touch
             </h4>
             <ul className="space-y-3 mb-6">
               <li className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-[var(--spa-orange)] flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xs">📍</span>
-                </div>
-                <span
-                  className="text-gray-600 text-sm"
-                  style={{ fontFamily: "system-ui, sans-serif" }}
-                >
-                  123 Wellness Boulevard, Spa District
-                </span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-[var(--spa-orange)] flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xs">📧</span>
-                </div>
-                <span
-                  className="text-gray-600 text-sm"
-                  style={{ fontFamily: "system-ui, sans-serif" }}
-                >
-                  info@spxek.com
-                </span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-[var(--spa-orange)] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-spa-orange flex items-center justify-center shrink-0">
                   <span className="text-white text-xs">📞</span>
                 </div>
                 <span
                   className="text-gray-600 text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
-                  (555) 123-SPXEK
+                  +2348117896388
                 </span>
               </li>
             </ul>
-
-            <div className="flex space-x-3">
+            <div className="flex items-center space-x-3">
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-gray-300 hover:bg-[var(--spa-orange)] hover:border-[var(--spa-orange)] hover:text-white flex items-center justify-center transition-all"
+                href="https://www.instagram.com/blissmassageparlor_official?igsh=MTFtY3Z2dWVieDBw"
+                className="w-10 h-10 rounded-full bg-white border border-gray-300 hover:bg-spa-orange hover:border-spa-orange hover:text-white flex items-center justify-center transition-all"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Facebook className="w-4 h-4" />
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-gray-300 hover:bg-[var(--spa-orange)] hover:border-[var(--spa-orange)] hover:text-white flex items-center justify-center transition-all"
+                href="https://www.instagram.com/blissmassageparlor_official?igsh=MTFtY3Z2dWVieDBw"
+                className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-gray-300 hover:bg-[var(--spa-orange)] hover:border-[var(--spa-orange)] hover:text-white flex items-center justify-center transition-all"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white border border-gray-300 hover:bg-[var(--spa-orange)] hover:border-[var(--spa-orange)] hover:text-white flex items-center justify-center transition-all"
-              >
-                <Linkedin className="w-4 h-4" />
+                blissmassageparlor_official
               </a>
             </div>
           </motion.div>
@@ -204,31 +167,9 @@ export function Footer() {
               className="text-gray-600 text-sm"
               style={{ fontFamily: "system-ui, sans-serif" }}
             >
-              Copyright © 2025 SPXEK Luxury Spa | All Rights Reserved
+              Copyright © {new Date().getFullYear()} Bliss Massage Parlor | All
+              Rights Reserved
             </p>
-            <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-gray-600 hover:text-[var(--spa-dark)] text-sm transition-colors"
-                style={{ fontFamily: "system-ui, sans-serif" }}
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-[var(--spa-dark)] text-sm transition-colors"
-                style={{ fontFamily: "system-ui, sans-serif" }}
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-[var(--spa-dark)] text-sm transition-colors"
-                style={{ fontFamily: "system-ui, sans-serif" }}
-              >
-                Cookies
-              </a>
-            </div>
           </div>
         </div>
       </div>
