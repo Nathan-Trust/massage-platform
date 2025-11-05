@@ -16,7 +16,7 @@ export function Navigation() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/massages" },
-    { name: "Gallery", href: "/testimonials" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
   ];
 

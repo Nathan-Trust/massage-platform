@@ -193,10 +193,17 @@ export default function HomePage() {
                 className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
                 style={{ fontFamily: "system-ui, sans-serif" }}
               >
-                From Swedish massage to deep tissue therapy, hot stone
-                treatments to aromatherapy sessions, each service is carefully
-                designed to promote healing, improve circulation, and enhance
-                your overall well-being.
+                From Swedish and Deep Tissue to Hot Stone, Nuru, Four Hand, and
+                Couple massages, each service is carefully designed to promote
+                healing, improve circulation, and enhance your overall
+                well-being.
+              </p>
+              <p
+                className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+                style={{ fontFamily: "system-ui, sans-serif" }}
+              >
+                Prefer a bundle? Explore our Royal, Presidential, Bliss, and
+                Executive packages for a complete luxury experience.
               </p>
               <Button
                 onClick={() => router.push("about")}
@@ -524,21 +531,6 @@ export default function HomePage() {
               })}
             </div>
 
-            {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full bg-[var(--spa-orange)] text-white flex items-center justify-center hover:bg-[var(--spa-orange)]/90 transition-colors"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
         </div>
       </section>

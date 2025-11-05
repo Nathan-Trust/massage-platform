@@ -235,52 +235,6 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* Locations Section */}
-      <section
-        className="relative py-16 md:py-24"
-        style={{ backgroundColor: "#FAFAFA" }}
-      >
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl mb-4 text-[var(--spa-dark)]"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
-            >
-              Our Locations
-            </h2>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* Map Placeholder */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="h-[500px] bg-[#E8E8E8] rounded-3xl flex items-center justify-center">
-            <div className="text-center p-8">
-              <MapPin className="w-20 h-20 text-gray-400 mx-auto mb-4" />
-              <h3
-                className="text-xl mb-2 text-gray-600"
-                style={{ fontWeight: 600, fontFamily: "system-ui, sans-serif" }}
-              >
-                Find Us Here
-              </h3>
-              <p
-                className="text-gray-500"
-                style={{ fontFamily: "system-ui, sans-serif" }}
-              >
-                Interactive map location
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section

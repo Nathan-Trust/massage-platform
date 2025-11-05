@@ -236,74 +236,7 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 md:py-24 bg-[#FAFAFA]">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl mb-4 text-[var(--spa-dark)]"
-              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
-            >
-              Masters
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden bg-white border-2 border-gray-200 hover:shadow-lg transition-shadow">
-                  <div className="relative h-80 overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6 text-center">
-                    <h3
-                      className="mb-1 text-[var(--spa-dark)]"
-                      style={{
-                        fontWeight: 600,
-                        fontFamily: "system-ui, sans-serif",
-                        fontSize: "1.25rem",
-                      }}
-                    >
-                      {member.name}
-                    </h3>
-                    <p
-                      className="text-gray-600 mb-4 text-sm"
-                      style={{ fontFamily: "system-ui, sans-serif" }}
-                    >
-                      {member.role}
-                    </p>
-                    <Link href="/contact">
-                      <Button
-                        className="w-full bg-[#6B7B5E] hover:bg-[#6B7B5E]/90 text-white rounded-full"
-                        style={{ fontFamily: "system-ui, sans-serif" }}
-                      >
-                        Book Now
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Service Section 1 */}
       <section className="py-16 md:py-24 bg-white">
@@ -618,7 +551,7 @@ export default function AboutClient() {
                       Address
                     </h3>
                     <p className="text-gray-600">
-                      123 Spa Street, Wellness District, City 12345
+                      We have offices in Lagos, Abuja, Ibadan, Port Harcourt
                     </p>
                   </div>
                 </div>
@@ -631,7 +564,7 @@ export default function AboutClient() {
                     <h3 className="text-xl font-semibold text-[var(--spa-dark)] mb-2">
                       Phone
                     </h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+2348117896388</p>
                   </div>
                 </div>
 
@@ -643,22 +576,13 @@ export default function AboutClient() {
                     <h3 className="text-xl font-semibold text-[var(--spa-dark)] mb-2">
                       Email
                     </h3>
-                    <p className="text-gray-600">info@massagetherapy.com</p>
+                    <p className="text-gray-600">blissmassage4142@gmail.com</p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                <p className="text-gray-500">Map placeholder</p>
-              </div>
-            </motion.div>
+           
           </div>
         </div>
       </section>

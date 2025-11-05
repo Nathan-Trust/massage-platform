@@ -10,12 +10,19 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import { massages } from "@/store/massages";
+import { packages, massages, sensualServices, premiumServices } from "@/store/massages";
 import { whatsappLink } from "@/store/contact";
 import { motion } from "framer-motion";
-import { Clock, DollarSign, Star } from "lucide-react";
+import { Clock, Star } from "lucide-react";
 
 export default function MassagesClient() {
+  // Combine all services for display
+  const allServices = [
+    ...packages,
+    ...massages,
+    ...sensualServices,
+    ...premiumServices,
+  ];
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Hero Section */}
@@ -60,6 +67,45 @@ export default function MassagesClient() {
         </div>
       </section>
 
+      {/* Download Menu Section */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl mb-4 text-spa-dark"
+              style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
+            >
+              View Our Complete Menu
+            </h2>
+            <p
+              className="text-sm sm:text-base mb-6 text-gray-600"
+              style={{ fontFamily: "system-ui, sans-serif" }}
+            >
+              Download our detailed package and price list to explore all our services and exclusive offers.
+            </p>
+            <Button
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/package-menu.jpeg';
+                link.download = 'Bliss-Massage-Package-Menu.jpeg';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="bg-spa-orange hover:bg-spa-orange/90 text-white px-8 py-6 rounded-full text-base sm:text-lg"
+              style={{ fontFamily: "system-ui, sans-serif", fontWeight: 600 }}
+            >
+              📥 Download Package Menu
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Services - Carousel on Mobile/Tablet, Cards on Desktop */}
       <section
         className="relative py-12 sm:py-16 md:py-20 lg:py-24"
@@ -76,8 +122,8 @@ export default function MassagesClient() {
               className="w-full"
             >
               <CarouselContent>
-                {massages.map((massage, index) => (
-                  <CarouselItem key={massage.title}>
+                {allServices.map((service, index) => (
+                  <CarouselItem key={service.title}>
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -88,8 +134,8 @@ export default function MassagesClient() {
                       <Card className="p-6 sm:p-8 bg-white/10 border-0 backdrop-blur-sm text-white">
                         <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-6">
                           <ImageWithFallback
-                            src={massage.image}
-                            alt={massage.title}
+                            src={service.image}
+                            alt={service.title}
                             className="w-full h-[280px] sm:h-[350px] object-cover"
                           />
                         </div>
@@ -101,16 +147,15 @@ export default function MassagesClient() {
                               className="text-xs sm:text-sm"
                               style={{ fontFamily: "system-ui, sans-serif" }}
                             >
-                              {massage.duration}
+                              {service.duration}
                             </span>
                           </div>
                           <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
-                            <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span
-                              className="text-xs sm:text-sm"
+                              className="text-xs sm:text-sm font-semibold"
                               style={{ fontFamily: "system-ui, sans-serif" }}
                             >
-                              {massage.price}
+                              {service.price}
                             </span>
                           </div>
                         </div>
@@ -122,14 +167,14 @@ export default function MassagesClient() {
                             fontFamily: "Georgia, serif",
                           }}
                         >
-                          {massage.title}
+                          {service.title}
                         </h3>
 
                         <p
                           className="mb-4 leading-relaxed opacity-95 text-sm sm:text-base"
                           style={{ fontFamily: "system-ui, sans-serif" }}
                         >
-                          {massage.description}
+                          {service.description}
                         </p>
 
                         <div className="mb-6">
@@ -143,13 +188,13 @@ export default function MassagesClient() {
                             Benefits:
                           </h4>
                           <ul className="space-y-1.5 sm:space-y-2">
-                            {massage.benefits.map((benefit, i) => (
+                            {service.benefits.map((benefit, i) => (
                               <li
                                 key={i}
                                 className="flex items-center gap-2 opacity-95 text-xs sm:text-sm"
                                 style={{ fontFamily: "system-ui, sans-serif" }}
                               >
-                                <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current flex-shrink-0" />
+                                <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current shrink-0" />
                                 {benefit}
                               </li>
                             ))}
@@ -178,9 +223,9 @@ export default function MassagesClient() {
 
           {/* Desktop Layout */}
           <div className="hidden lg:block space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
-            {massages.map((massage, index) => (
+            {allServices.map((service, index) => (
               <motion.div
-                key={massage.title}
+                key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -195,8 +240,8 @@ export default function MassagesClient() {
                   <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                       <ImageWithFallback
-                        src={massage.image}
-                        alt={massage.title}
+                        src={service.image}
+                        alt={service.title}
                         className="w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover"
                       />
                     </div>
@@ -215,16 +260,15 @@ export default function MassagesClient() {
                           className="text-xs sm:text-sm"
                           style={{ fontFamily: "system-ui, sans-serif" }}
                         >
-                          {massage.duration}
+                          {service.duration}
                         </span>
                       </div>
                       <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full">
-                        <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span
-                          className="text-xs sm:text-sm"
+                          className="text-xs sm:text-sm font-semibold"
                           style={{ fontFamily: "system-ui, sans-serif" }}
                         >
-                          {massage.price}
+                          {service.price}
                         </span>
                       </div>
                     </div>
@@ -233,14 +277,14 @@ export default function MassagesClient() {
                       className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4"
                       style={{ fontWeight: 400, fontFamily: "Georgia, serif" }}
                     >
-                      {massage.title}
+                      {service.title}
                     </h3>
 
                     <p
                       className="mb-4 sm:mb-6 leading-relaxed opacity-95 text-sm sm:text-base"
                       style={{ fontFamily: "system-ui, sans-serif" }}
                     >
-                      {massage.description}
+                      {service.description}
                     </p>
 
                     <div className="mb-4 sm:mb-6">
@@ -254,13 +298,13 @@ export default function MassagesClient() {
                         Benefits:
                       </h4>
                       <ul className="space-y-1.5 sm:space-y-2">
-                        {massage.benefits.map((benefit, i) => (
+                        {service.benefits.map((benefit, i) => (
                           <li
                             key={i}
                             className="flex items-center gap-2 opacity-95 text-xs sm:text-sm md:text-base"
                             style={{ fontFamily: "system-ui, sans-serif" }}
                           >
-                            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current flex-shrink-0" />
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-current shrink-0" />
                             {benefit}
                           </li>
                         ))}

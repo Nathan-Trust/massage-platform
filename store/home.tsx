@@ -40,27 +40,29 @@ export const features = [
 
 export const testimonials = [
   {
-    name: "Sarah Johnson",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+    name: "Adaeze N.",
+    image:
+      "https://images.pexels.com/photos/3865552/pexels-photo-3865552.jpeg?w=400",
     rating: 5,
-    text: "The Swedish massage was absolutely incredible! The therapist was so skilled and really helped relieve the tension in my shoulders. The ambiance was perfect for relaxation.",
+    text: "The massage was so soothing. I walked out relaxed and recharged. The ambience feels like a true escape from Lagos hustle.",
   },
   {
-    name: "Michael Chen",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    name: "Olufemi",
+    image: "/olufemi.jpg",
     rating: 5,
-    text: "I have been coming here for months now and every visit exceeds my expectations. The deep tissue massage helped tremendously with my chronic back pain. Highly recommend!",
+    text: "Deep tissue session relieved weeks of tension in my back. Friendly team and very professional therapists.",
+  },
+
+  {
+    name: "Funke A.",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400",
+    rating: 5,
+    text: "Hot stone massage was heaven! The warmth and technique eased every knot. I slept like a baby after.",
   },
   {
-    name: "Emily Rodriguez",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+    name: "Nathan Knorr",
+    image: "/nat.jpeg",
     rating: 5,
-    text: "The hot stone massage was pure bliss! The combination of heat and skilled hands created such a deeply relaxing experience. The staff is incredibly professional and welcoming.",
-  },
-  {
-    name: "David Thompson",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
-    rating: 5,
-    text: "As an athlete, I need regular massage therapy for recovery. This place understands sports massage perfectly. They help me maintain peak performance and prevent injuries.",
+    text: "Smooth booking, serene space, and a fantastic therapist. I’ll keep coming back for maintenance sessions.",
   },
 ];
