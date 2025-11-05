@@ -3,14 +3,19 @@
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { massages } from "@/store/massages";
+import { whatsappLink } from "@/store/contact";
 import { motion } from "framer-motion";
 import { Clock, DollarSign, Star } from "lucide-react";
 
-export default  function MassagesClient() {
- 
-
+export default function MassagesClient() {
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Hero Section */}
@@ -152,6 +157,7 @@ export default  function MassagesClient() {
                         </div>
 
                         <Button
+                          onClick={() => window.open(whatsappLink, "_blank")}
                           className="bg-white text-[#6B7B5E] hover:bg-white/90 px-6 sm:px-8 py-5 sm:py-6 rounded-full w-full"
                           style={{
                             fontFamily: "system-ui, sans-serif",
@@ -262,6 +268,7 @@ export default  function MassagesClient() {
                     </div>
 
                     <Button
+                      onClick={() => window.open(whatsappLink, "_blank")}
                       className="bg-white text-[#6B7B5E] hover:bg-white/90 px-6 sm:px-8 py-5 sm:py-6 rounded-full w-full sm:w-auto"
                       style={{
                         fontFamily: "system-ui, sans-serif",
@@ -472,6 +479,7 @@ export default  function MassagesClient() {
               restore balance and wellness
             </p>
             <Button
+              onClick={() => window.open(whatsappLink, "_blank")}
               className="bg-white text-[var(--spa-dark)] hover:bg-white/90 px-10 py-6 rounded-full text-lg"
               style={{ fontFamily: "system-ui, sans-serif", fontWeight: 600 }}
             >
