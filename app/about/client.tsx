@@ -58,8 +58,8 @@ export default function AboutClient() {
               {/* Main large image */}
               <div className="absolute top-0 left-0 w-[70%] h-[70%] rounded-full overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1610402601271-5b4bd5b3eba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Massage therapy"
+                  src="/iwaria-inc-VWELT4w5jj8-unsplash.jpg"
+                  alt="Serene spa room ready for treatment"
                   fill
                   className="object-cover"
                 />
@@ -68,8 +68,8 @@ export default function AboutClient() {
               {/* Top right smaller circle */}
               <div className="absolute top-[10%] right-[5%] w-[35%] h-[35%] rounded-full overflow-hidden shadow-xl border-4 border-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1617952986600-802f965dcdbc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Massage hands"
+                  src="/iwaria-inc-6LIGxWPrAUM-unsplash.jpg"
+                  alt="Premium spa oils and essentials"
                   fill
                   className="object-cover"
                 />
@@ -78,8 +78,8 @@ export default function AboutClient() {
               {/* Bottom right smaller circle */}
               <div className="absolute bottom-[5%] right-[15%] w-[35%] h-[35%] rounded-full overflow-hidden shadow-xl border-4 border-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1688441647034-8eef5655cb0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Spa stones"
+                  src="/iwaria-inc-Bv826LRAgIc-unsplash.jpg"
+                  alt="Relaxing back massage close-up"
                   fill
                   className="object-cover"
                 />
@@ -120,8 +120,8 @@ export default function AboutClient() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Massage therapy"
+                  src="/iwaria-inc-_sYJQjqopus-unsplash.jpg"
+                  alt="Welcoming spa lounge"
                   width={500}
                   height={500}
                   className="w-full h-[400px] md:h-[500px] object-cover"
@@ -236,8 +236,6 @@ export default function AboutClient() {
         </div>
       </section>
 
-     
-
       {/* Service Section 1 */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -250,8 +248,8 @@ export default function AboutClient() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1606738157849-bf12a05454f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Deep tissue massage"
+                  src="/ben-masora-IjarZOMxW98-unsplash.jpg"
+                  alt="Deep tissue massage session"
                   width={500}
                   height={500}
                   className="w-full h-[400px] md:h-[500px] object-cover"
@@ -305,8 +303,8 @@ export default function AboutClient() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1586264332797-cab9a662a896?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Cupping therapy"
+                  src="/iwaria-inc-6LIGxWPrAUM-unsplash.jpg"
+                  alt="Cupping therapy setup with spa essentials"
                   width={500}
                   height={500}
                   className="w-full h-[400px] md:h-[500px] object-cover"
@@ -360,8 +358,8 @@ export default function AboutClient() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1722350766824-f8520e9676ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080"
-                  alt="Facial therapy"
+                  src="/vladimir-yelizarov-e0XmX62r9xE-unsplash.jpg"
+                  alt="Facial and cosmetic therapy setup"
                   width={500}
                   height={500}
                   className="w-full h-[400px] md:h-[500px] object-cover"
@@ -581,8 +579,6 @@ export default function AboutClient() {
                 </div>
               </div>
             </motion.div>
-
-           
           </div>
         </div>
       </section>

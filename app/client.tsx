@@ -136,8 +136,8 @@ export default function HomePage() {
             >
               <div className="relative rounded-lg overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1722351255255-93850590d5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGN1Y3VtYmVyJTIwZmFjZSUyMG1hc2slMjBzcGF8ZW58MXx8fHwxNzYyMTE1NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Spa treatment"
+                  src="/iwaria-inc-_sYJQjqopus-unsplash.jpg"
+                  alt="Smiling client enjoying luxury spa ambience"
                   className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
               </div>
@@ -159,8 +159,8 @@ export default function HomePage() {
             >
               <div className="relative rounded-lg overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGElMjBtYXNzYWdlJTIwdGhlcmFweSUyMGJlZHxlbnwxfHx8fDE3NjIxMTU2MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Massage therapy"
+                  src="/iwaria-inc-VWELT4w5jj8-unsplash.jpg"
+                  alt="Therapist preparing massage session"
                   className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
                 />
               </div>
@@ -352,8 +352,8 @@ export default function HomePage() {
             >
               <div className="relative rounded-lg overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1606619353146-a7732c58345d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGElMjBvaWwlMjB0cmVhdG1lbnQlMjBoYW5kc3xlbnwxfHx8fDE3NjIxMTU2MTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Spa treatment"
+                  src="/iwaria-inc-6LIGxWPrAUM-unsplash.jpg"
+                  alt="Premium spa oil treatment setup"
                   className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
                 />
               </div>
@@ -373,8 +373,8 @@ export default function HomePage() {
             className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
           >
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXNzYWdlJTIwaGFuZHMlMjBiYWNrfGVufDF8fHx8MTc2MjExNTE5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-              alt="Massage"
+              src="/iwaria-inc-Bv826LRAgIc-unsplash.jpg"
+              alt="Close-up of relaxing back massage"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -445,8 +445,8 @@ export default function HomePage() {
             >
               <div className="relative rounded-lg overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1544717304-a2db4a7b16ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHNwYSUyMHRvd2VsJTIwYmVhdXR5fGVufDF8fHx8MTc2MjExNTYxOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Natural beauty"
+                  src="/vladimir-yelizarov-e0XmX62r9xE-unsplash.jpg"
+                  alt="Peaceful spa environment with natural elements"
                   className="w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover"
                 />
               </div>
