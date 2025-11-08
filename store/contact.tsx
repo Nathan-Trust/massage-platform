@@ -1,10 +1,15 @@
 import { Instagram, Facebook, Twitter } from "lucide-react";
 
 export const whatsappNumber = "+2348117896388"; // Updated with actual WhatsApp number
+
+// WhatsApp link with pre-filled message to track web visitors
+const message = encodeURIComponent(
+  "Hello! I'm visiting from your website and I'd like to book a massage session."
+);
 export const whatsappLink = `https://wa.me/${whatsappNumber.replace(
   /\+/g,
   ""
-)}`;
+)}?text=${message}`;
 
 export const socialMedia = [
   {
