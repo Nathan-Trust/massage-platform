@@ -562,7 +562,7 @@ export default function AboutClient() {
                     <h3 className="text-xl font-semibold text-[var(--spa-dark)] mb-2">
                       Phone
                     </h3>
-                    <p className="text-gray-600">+2348117896388</p>
+                    <p className="text-gray-600">+2349074508127</p>
                   </div>
                 </div>
 
