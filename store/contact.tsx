@@ -1,6 +1,6 @@
 import { Instagram, Facebook, Twitter } from "lucide-react";
 
-export const whatsappNumber = "+2349074508127"; // Updated with actual WhatsApp number
+export const whatsappNumber = "+2349044759926"; // Updated with actual WhatsApp number
 
 // WhatsApp link with pre-filled message to track web visitors
 const message = encodeURIComponent(
