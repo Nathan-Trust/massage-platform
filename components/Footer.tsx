@@ -134,7 +134,7 @@ export function Footer() {
                   className="text-gray-600 text-sm"
                   style={{ fontFamily: "system-ui, sans-serif" }}
                 >
-                  +2349074508127
+                  +2349044759926
                 </span>
               </li>
             </ul>
