@@ -91,7 +91,7 @@ export function Footer() {
                   Our Services
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/testimonials"
                   className="text-gray-600 hover:text-spa-dark transition-colors text-sm"
@@ -99,7 +99,7 @@ export function Footer() {
                 >
                   Client Gallery
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/contact"
