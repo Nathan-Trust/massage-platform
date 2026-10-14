@@ -997,6 +997,7 @@
   }
   .field {
     display: grid;
+    align-content: start;
     gap: 8px;
     min-width: 0;
   }
@@ -1053,20 +1054,6 @@
     outline: none;
     background-size: 100% 2px;
     border-bottom-color: transparent;
-  }
-  select.line-input {
-    padding-right: 28px;
-    background:
-      linear-gradient(var(--gold), var(--gold)) no-repeat left bottom / 0% 2px,
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A08A6E' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 4px center / 14px;
-  }
-  select.line-input:focus {
-    background-size: 100% 2px, 14px;
-  }
-  select.line-input option,
-  select.line-input optgroup {
-    background: var(--surface);
-    color: var(--fg);
   }
   textarea.line-input {
     min-height: 96px;
@@ -1256,6 +1243,90 @@
   .page-in {
     animation: pagein 0.6s var(--ease-out) both;
   }
+}
+
+/* ---------- shadcn Select, restyled as an underline field ----------
+   Unlayered on purpose: it must win over the utility classes baked into components/ui/select.tsx. */
+.line-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  height: auto;
+  min-height: 52px;
+  padding: 12px 0 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  background: linear-gradient(var(--gold), var(--gold)) no-repeat left bottom / 0% 2px;
+  color: var(--fg);
+  font: 500 17px/1.4 var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+  transition: background-size 0.45s var(--ease-out), border-color 0.3s;
+}
+.line-select:hover {
+  background-color: transparent;
+}
+.line-select:focus,
+.line-select:focus-visible,
+.line-select[data-state="open"] {
+  outline: none;
+  box-shadow: none;
+  background-size: 100% 2px;
+  border-bottom-color: transparent;
+}
+.line-select[data-placeholder] {
+  color: color-mix(in srgb, var(--muted-fg) 65%, transparent);
+}
+.line-select > svg {
+  color: var(--muted-fg);
+  opacity: 0.8;
+  transition: transform 0.35s var(--ease-out);
+}
+.line-select[data-state="open"] > svg {
+  transform: rotate(180deg);
+  color: var(--gold-ink);
+}
+.line-select[aria-invalid="true"] {
+  border-bottom: 2px solid var(--error);
+}
+.line-select-content {
+  min-width: var(--radix-select-trigger-width);
+  padding: 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 24px 48px -24px rgb(var(--shade) / 0.45);
+}
+.line-select-label {
+  padding: 10px 12px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+}
+.line-select-item {
+  min-height: 44px;
+  padding: 10px 36px 10px 12px;
+  border-radius: 10px;
+  font: 500 15px/1.3 var(--font-sans);
+  cursor: pointer;
+}
+.line-select-item[data-highlighted] {
+  background: var(--sand);
+  color: var(--fg);
+}
+.line-select-item[data-state="checked"] {
+  color: var(--gold-ink);
+  font-weight: 600;
+}
+.line-select-item svg {
+  color: var(--gold-ink);
 }
 
 /* ---------- responsive ---------- */

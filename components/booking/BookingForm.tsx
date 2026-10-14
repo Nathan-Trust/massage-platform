@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Info, MessageCircle } from "lucide-react";
 import { Field, WhatsAppResult, describe, openWhatsApp } from "@/components/booking/FormParts";
+import { LineSelect } from "@/components/booking/LineSelect";
 import { BOOKABLE, CITIES, COPY, findBookable, formatNaira } from "@/lib/content";
 import { buildBookingMessage, todayISO, waLink } from "@/lib/whatsapp";
 
@@ -63,23 +64,24 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
     <form className="form-card" onSubmit={handleSubmit(onSubmit)} noValidate aria-label="Booking request">
       <div className="grid2">
         <Field id="b-item" label="Service or package" full>
-          <select className="line-input" {...describe("b-item")} {...register("item")}>
-            <option value="">Choose a service or package</option>
-            <optgroup label="Packages">
-              {packages.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.label} · {formatNaira(p.price!)}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Massage services">
-              {services.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.label}
-                </option>
-              ))}
-            </optgroup>
-          </select>
+          <Controller
+            control={control}
+            name="item"
+            render={({ field }) => (
+              <LineSelect
+                {...describe("b-item")}
+                ref={field.ref}
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+                placeholder="Choose a service or package"
+                groups={[
+                  { label: "Packages", options: packages.map((p) => ({ value: p.id, label: `${p.label} · ${formatNaira(p.price!)}` })) },
+                  { label: "Massage services", options: services.map((x) => ({ value: x.id, label: x.label })) },
+                ]}
+              />
+            )}
+          />
         </Field>
 
         {selected?.price && (
@@ -99,12 +101,21 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
           hint="Choosing a city doesn’t guarantee every address can be served. We’ll confirm."
           error={errors.city?.message}
         >
-          <select className="line-input" {...describe("b-city", errors.city?.message, true)} {...register("city")}>
-            <option value="">Select your city</option>
-            {CITIES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
+          <Controller
+            control={control}
+            name="city"
+            render={({ field }) => (
+              <LineSelect
+                {...describe("b-city", errors.city?.message, true)}
+                ref={field.ref}
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+                placeholder="Select your city"
+                groups={[{ options: CITIES.map((c) => ({ value: c, label: c })) }]}
+              />
+            )}
+          />
         </Field>
 
         <Field id="b-area" label="Area or address" required error={errors.area?.message}>
