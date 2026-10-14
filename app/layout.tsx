@@ -1,23 +1,35 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { RevealOnScroll } from "@/components/site/RevealOnScroll";
+import { BRAND, COPY } from "@/lib/content";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sans = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Bliss Massage Parlor - Wellness & Rejuvenation",
-  description:
-    "Experience tranquility and rejuvenation at Bliss Massage Parlor. Professional massage therapy, wellness treatments, and holistic healing in a serene environment.",
+  metadataBase: new URL(BRAND.siteUrl),
+  title: {
+    default: `${BRAND.name} — ${BRAND.descriptor}`,
+    template: `%s · ${BRAND.name}`,
+  },
+  description: COPY.home.body,
+  openGraph: {
+    siteName: `${BRAND.name} — ${BRAND.descriptor}`,
+    type: "website",
+    images: ["/images/v2/hero.jpg"],
+  },
   icons: {
     icon: ["/favicon.ico"],
     apple: ["/apple-touch-icon.png"],
@@ -25,19 +37,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#2B1D16",
+  viewportFit: "cover",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navigation />
-        {children}
-        <Footer />
+    <html lang="en-NG" className={`${display.variable} ${sans.variable}`}>
+      <body>
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+        <RevealOnScroll />
       </body>
     </html>
   );
