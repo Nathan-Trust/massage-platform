@@ -7,10 +7,12 @@ type Props = {
   sub?: string;
   image: string;
   objectPosition?: string;
+  /** Optional call-to-action shown under the intro. */
+  children?: React.ReactNode;
 };
 
 /** Short framed photo hero used at the top of every inner page. */
-export function PageHero({ eyebrow, title, titleAccent, sub, image, objectPosition = "center 30%" }: Props) {
+export function PageHero({ eyebrow, title, titleAccent, sub, image, objectPosition = "center 30%", children }: Props) {
   return (
     <div className="frame">
       <section className="hero short" aria-labelledby="page-title">
@@ -30,6 +32,7 @@ export function PageHero({ eyebrow, title, titleAccent, sub, image, objectPositi
               {title} <em>{titleAccent}</em>
             </h1>
             {sub && <p className="hero-sub load-in d3">{sub}</p>}
+            {children && <div className="hero-ctas load-in d3">{children}</div>}
           </div>
         </div>
       </section>

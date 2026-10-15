@@ -88,11 +88,13 @@ export const PACKAGES: Package[] = [
   { id: "executive-premium", name: "Executive Premium", price: 300000 },
 ];
 
-export type BookableItem = { id: string; label: string; price?: number; kind: "package" | "service" };
+export type BookableItem = { id: string; label: string; price?: number; kind: "package" | "service" | "facial" };
 
 export const BOOKABLE: BookableItem[] = [
   ...PACKAGES.map((p) => ({ id: p.id, label: p.name, price: p.price, kind: "package" as const })),
   ...SERVICES.map((s) => ({ id: s.id, label: s.name, price: s.price, kind: "service" as const })),
+  // No facial list or prices yet: one general request option until the client confirms treatments.
+  { id: "facial", label: "Facial treatment (ask for options)", kind: "facial" },
 ];
 
 export const findBookable = (id?: string | null) => BOOKABLE.find((b) => b.id === id);
@@ -180,6 +182,26 @@ export const COPY = {
     important:
       "Sending a WhatsApp message is a booking request, not a confirmed appointment. Your booking is confirmed only after Bliss confirms the date and time, agrees the total price and travel fee, and explains the deposit required.",
   },
+  facials: {
+    label: "Bliss Facial Treatments",
+    homeHeading: "Facials,",
+    homeHeadingAccent: "brought to you",
+    homeBody:
+      "Alongside our massage sessions, Bliss offers facial treatments. Message us on WhatsApp for the current facial options, prices and availability in your city.",
+    heading: "Facials, delivered",
+    headingAccent: "with care",
+    intro:
+      "Message us on WhatsApp for the current facial options, prices and availability. We’ll discuss your preferences before confirming your appointment.",
+    sectionEyebrow: "Skin care at home",
+    sectionHeading: "Facials,",
+    sectionHeadingAccent: "made personal",
+    sectionBody:
+      "Tell us what you’d like from your facial and where you are. We’ll share the current facial options, prices and availability on WhatsApp before confirming your appointment.",
+    pricing:
+      "Facial prices are confirmed with you on WhatsApp before you book. Any travel fee is agreed before your appointment is confirmed.",
+    cta: "Ask about facials on WhatsApp",
+    explore: "Explore Facials",
+  },
   footer: {
     line: "Bliss — Mobile Massage & Wellness",
     cta: "Ready to unwind?",
@@ -188,8 +210,9 @@ export const COPY = {
 } as const;
 
 export const NAV = [
-  { href: "/massage-and-wellness", label: "Massage & Wellness", short: "Massage & Wellness" },
-  { href: "/packages-and-pricing", label: "Packages & Pricing", short: "Packages & Pricing" },
+  { href: "/massage-and-wellness", label: "Massage & Wellness", short: "Massage" },
+  { href: "/facials", label: "Bliss Facial Treatments", short: "Facials" },
+  { href: "/packages-and-pricing", label: "Packages & Pricing", short: "Packages" },
   { href: "/mobile-massage", label: "Mobile Massage", short: "Mobile Massage" },
   { href: "/corporate-wellness", label: "Corporate Wellness", short: "Corporate" },
   { href: "/about", label: "About Bliss", short: "About" },

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ArrowButton } from "@/components/site/ArrowButton";
 import { CityChips, PackageCards, Steps } from "@/components/site/Blocks";
+import { FacialMosaic } from "@/components/site/FacialMosaic";
 import { ServiceAccordion } from "@/components/site/ServiceAccordion";
 import { BRAND, CITIES, COPY } from "@/lib/content";
 
@@ -122,6 +123,26 @@ export default function Home() {
               Package notes, deposits and gift options <ArrowUpRight size={18} strokeWidth={1.8} />
             </Link>
           </p>
+        </div>
+      </section>
+
+      <section className="facial-band" aria-labelledby="facials-title">
+        <span className="glow" aria-hidden="true" />
+        <div className="wrap facial-split">
+          <FacialMosaic ringId="ring-facials-home" />
+          <div className="facial-copy" data-reveal>
+            <span className="eyebrow">{COPY.facials.label}</span>
+            <h2 id="facials-title">
+              {COPY.facials.homeHeading} <em>{COPY.facials.homeHeadingAccent}</em>
+            </h2>
+            <p className="lede">{COPY.facials.homeBody}</p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <ArrowButton href="/facials">{COPY.facials.explore}</ArrowButton>
+              <Link href="/book?item=facial" className="link-arrow">
+                {COPY.facials.cta} <ArrowUpRight size={18} strokeWidth={1.8} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

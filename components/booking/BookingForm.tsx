@@ -59,6 +59,7 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
 
   const packages = BOOKABLE.filter((b) => b.kind === "package");
   const services = BOOKABLE.filter((b) => b.kind === "service");
+  const facials = BOOKABLE.filter((b) => b.kind === "facial");
 
   return (
     <form className="form-card" onSubmit={handleSubmit(onSubmit)} noValidate aria-label="Booking request">
@@ -78,6 +79,7 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
                 groups={[
                   { label: "Packages", options: packages.map((p) => ({ value: p.id, label: `${p.label} · ${formatNaira(p.price!)}` })) },
                   { label: "Massage services", options: services.map((x) => ({ value: x.id, label: `${x.label} · ${formatNaira(x.price!)}` })) },
+                  { label: "Facials", options: facials.map((x) => ({ value: x.id, label: x.label })) },
                 ]}
               />
             )}

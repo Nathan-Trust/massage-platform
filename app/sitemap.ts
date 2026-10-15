@@ -4,6 +4,7 @@ import { BRAND } from "@/lib/content";
 const ROUTES: { path: string; priority: number }[] = [
   { path: "", priority: 1 },
   { path: "/massage-and-wellness", priority: 0.9 },
+  { path: "/facials", priority: 0.8 },
   { path: "/packages-and-pricing", priority: 0.9 },
   { path: "/mobile-massage", priority: 0.8 },
   { path: "/corporate-wellness", priority: 0.8 },
