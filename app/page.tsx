@@ -146,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="block pt-0">
+      <section className="block">
         <div className="wrap split">
           <div className="photo" data-reveal>
             <Image
