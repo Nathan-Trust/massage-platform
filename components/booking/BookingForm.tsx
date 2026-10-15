@@ -86,11 +86,11 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
 
         {selected?.price && (
           <div className="price-box">
-            <div>
-              <span className="mb-1 block">Listed price</span>
-              <b>{formatNaira(selected.price)}</b>
+            <div className="pb-amount">
+              <span className="pb-label">Listed price</span>
+              <b className="pb-value">{formatNaira(selected.price)}</b>
             </div>
-            <span>Any travel fee and the final total are confirmed with you on WhatsApp before any payment.</span>
+            <p className="pb-note">Any travel fee and the final total are confirmed with you on WhatsApp before any payment.</p>
           </div>
         )}
 
