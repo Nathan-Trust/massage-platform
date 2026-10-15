@@ -170,8 +170,6 @@ export const COPY = {
       { title: "Private", body: "Your comfort, privacy and agreed boundaries matter." },
       { title: "Personal", body: "We discuss your preferences and needs before the session." },
     ],
-    reviews:
-      "Client feedback will be added only when genuine reviews have been received and permission to publish them has been obtained.",
   },
   book: {
     heading: "Book your",

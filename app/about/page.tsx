@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Info } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { COPY } from "@/lib/content";
 
@@ -37,10 +36,6 @@ export default function About() {
                 <p>{p.body}</p>
               </div>
             ))}
-          </div>
-          <div className="review-note">
-            <Info size={18} strokeWidth={1.8} className="mt-0.5 flex-none" aria-hidden="true" />
-            <span>{COPY.about.reviews}</span>
           </div>
         </div>
       </section>

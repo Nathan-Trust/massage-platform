@@ -986,17 +986,6 @@
   .pillar p {
     color: var(--muted-fg);
   }
-  .review-note {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 16px;
-    padding: 22px 26px;
-    border-radius: var(--r-md);
-    border: 1px dashed var(--line);
-    font-size: 15px;
-    color: var(--muted-fg);
-  }
 
   /* ---------- forms: underline inputs, gold line sweeps in on focus ---------- */
   .form-card {
