@@ -948,6 +948,18 @@
     color: var(--muted-fg);
   }
 
+  .svc-price {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold-ink);
+  }
+  .svc .cap .svc-price {
+    font-size: 28px;
+    font-style: normal;
+    color: var(--gold-soft);
+  }
   /* ---------- pillars ---------- */
   .pillars {
     display: grid;

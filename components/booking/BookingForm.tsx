@@ -77,7 +77,7 @@ export function BookingForm({ initialItem }: { initialItem?: string }) {
                 placeholder="Choose a service or package"
                 groups={[
                   { label: "Packages", options: packages.map((p) => ({ value: p.id, label: `${p.label} · ${formatNaira(p.price!)}` })) },
-                  { label: "Massage services", options: services.map((x) => ({ value: x.id, label: x.label })) },
+                  { label: "Massage services", options: services.map((x) => ({ value: x.id, label: `${x.label} · ${formatNaira(x.price!)}` })) },
                 ]}
               />
             )}

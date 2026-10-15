@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowButton } from "@/components/site/ArrowButton";
 import { PageHero } from "@/components/site/PageHero";
-import { COPY, SERVICES } from "@/lib/content";
+import { COPY, SERVICES, formatNaira } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Massage & Wellness",
@@ -28,6 +28,7 @@ export default function MassageAndWellness() {
               </div>
               <div className="tx">
                 <h3>{s.name}</h3>
+                <div className="svc-price">{formatNaira(s.price)}</div>
                 <p>{s.description}</p>
                 <div>
                   <ArrowButton href={`/book?item=${s.id}`}>{COPY.services.cta}</ArrowButton>

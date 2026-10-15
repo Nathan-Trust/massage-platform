@@ -21,7 +21,7 @@ export function PackageCards() {
     <div className="pkgs">
       {PACKAGES.map((p) => (
         <article key={p.id} className={cn("pkg", p.featured && "feature")} data-reveal>
-          <span className="tier">Executive package</span>
+          <span className="tier">Executive Discreet Package</span>
           <h3>{p.name}</h3>
           <div className="price">
             {formatNaira(p.price)}

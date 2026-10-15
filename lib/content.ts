@@ -20,6 +20,7 @@ export type Service = {
   id: string;
   name: string;
   short: string;
+  price: number;
   description: string;
   image: string;
   imageAlt: string;
@@ -28,6 +29,7 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     id: "swedish",
+    price: 60000,
     name: "Swedish massage",
     short: "Swedish",
     description: "A relaxing massage using flowing movements to help you unwind.",
@@ -36,6 +38,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "deep-tissue",
+    price: 70000,
     name: "Deep tissue massage",
     short: "Deep tissue",
     description:
@@ -45,6 +48,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "hot-stone",
+    price: 70000,
     name: "Hot stone massage",
     short: "Hot stone",
     description: "A warming massage experience using heated stones, where suitable.",
@@ -53,6 +57,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "couples",
+    price: 150000,
     name: "Couples massage",
     short: "Couples",
     description: "A shared massage experience for two, subject to therapist and schedule availability.",
@@ -61,6 +66,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "four-hand",
+    price: 200000,
     name: "Four-hand massage",
     short: "Four-hand",
     description: "A coordinated session with two therapists, subject to availability.",
@@ -77,16 +83,16 @@ export type Package = {
 };
 
 export const PACKAGES: Package[] = [
-  { id: "executive-wellness", name: "Executive Wellness", price: 60000 },
-  { id: "executive-plus", name: "Executive Plus", price: 85000, featured: true },
-  { id: "executive-premium", name: "Executive Premium", price: 120000 },
+  { id: "executive-wellness", name: "Executive Wellness", price: 100000 },
+  { id: "executive-plus", name: "Executive Plus", price: 200000, featured: true },
+  { id: "executive-premium", name: "Executive Premium", price: 300000 },
 ];
 
 export type BookableItem = { id: string; label: string; price?: number; kind: "package" | "service" };
 
 export const BOOKABLE: BookableItem[] = [
   ...PACKAGES.map((p) => ({ id: p.id, label: p.name, price: p.price, kind: "package" as const })),
-  ...SERVICES.map((s) => ({ id: s.id, label: s.name, kind: "service" as const })),
+  ...SERVICES.map((s) => ({ id: s.id, label: s.name, price: s.price, kind: "service" as const })),
 ];
 
 export const findBookable = (id?: string | null) => BOOKABLE.find((b) => b.id === id);

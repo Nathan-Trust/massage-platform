@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { ArrowButton } from "@/components/site/ArrowButton";
-import { COPY, SERVICES } from "@/lib/content";
+import { COPY, SERVICES, formatNaira } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const CYCLE_MS = 6000;
@@ -65,6 +65,7 @@ export function ServiceAccordion() {
           </span>
           <div className="cap">
             <b>{s.name}</b>
+            <em className="svc-price">{formatNaira(s.price)}</em>
             <span>{s.description}</span>
             <ArrowButton href={`/book?item=${s.id}`} variant="light">
               {COPY.services.cta}
